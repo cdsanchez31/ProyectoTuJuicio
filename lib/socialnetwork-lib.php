@@ -118,7 +118,7 @@ function Headerb (){
             </li>
 
             <li>
-            <a href="chat.php">
+            <a href="chats.php">
                 <i class="fa fa-commenting"></i> <span>Chats</span>
             </a>
             </li>
@@ -142,7 +142,7 @@ function Headerb (){
 
 
             <li>
-                <a href="pages/widgets.html">
+                <a href="terminosjuridicos.php">
                     <i class="fa fa-legal"></i> <span>Terminos Juridicos</span>
                 </a>
             </li>

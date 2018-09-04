@@ -88,7 +88,11 @@ if(!isset($_SESSION['usuario']))
                                 <?php
                             }
                             ?>
-
+                        </div>
+                        <div>
+                            <a href="chat.php?usuario=<?php echo $idperfil; ?>">
+                                <input type="button" class="btn btn-danger btn-raised btn-block btn-flat" value="CHAT" name="dejarseguir">
+                            </a>
                         </div>
                         <!-- /.box-body -->
                     </div>
