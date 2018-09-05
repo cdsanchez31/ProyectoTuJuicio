@@ -51,6 +51,8 @@ if(!isset($_SESSION['usuario']))
 <div class="wrapper">
     <?php echo Headerb (); ?>
     <?php echo Side (); ?>
+
+    <br><br><br>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->

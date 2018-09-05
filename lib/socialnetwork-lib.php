@@ -12,7 +12,7 @@ function Headerb (){
     </a>
 
     <!-- Header Navbar: style can be found in header.less -->
-    <nav class="navbar navbar-static-top">
+    <nav class="navbar navbar-static-top navbar-fixed-top">
         <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
@@ -78,7 +78,6 @@ function Headerb (){
                 </ul>
                 </li>
                 <!-- Control Sidebar Toggle Button -->
-
             </ul>
         </div>
     </nav>
@@ -92,7 +91,7 @@ function Headerb (){
     function Side (){
 ?>
 <!-- Left side column. contains the logo and sidebar -->
-<aside class="main-sidebar">
+<aside class="main-sidebar ">
 <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
     <!-- Sidebar user panel -->

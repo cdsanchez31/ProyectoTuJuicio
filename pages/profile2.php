@@ -50,6 +50,7 @@ if(!isset($_SESSION['usuario']))
     <?php echo Headerb (); ?>
     <?php echo Side ();?>
 
+    <br><br><br>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
 

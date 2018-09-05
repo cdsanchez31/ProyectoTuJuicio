@@ -63,12 +63,13 @@ if(isset($_GET['l'])){
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     </head>
 
-    <body class="hold-transition skin-red sidebar-mini">
+    <body onload="ajax();" class="hold-transition skin-red sidebar-mini">
         <div class="wrapper">
 
             <?php echo Headerb(); ?>
             <?php echo Side(); ?>
 
+            <br><br><br>
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
@@ -82,10 +83,9 @@ if(isset($_GET['l'])){
                 <section class="content">
                     <div class="row">
                         <div class="col-md-3">
-                            <a href="chats.php" class="btn btn-p btn-block margin-bottom">Mis chats</a>
-                            <button href="chats.php" type="submit" name="login" class="btn btn-danger btn-raised btn-block btn-flat">
+                            <a href="chats.php" class="btn btn-danger btn-raised btn-block btn-flat">
                                 <i class="fa fa-paw"></i> <span>Mis chats</span>
-                            </button>
+                            </a>
 
                             <div class="box box-solid">
                                 <div class="box-header with-border">
@@ -118,51 +118,54 @@ if(isset($_GET['l'])){
                                             <div class="col-md-12">
                                                 <!-- DIRECT CHAT PRIMARY -->
                                                 <div class="box-header with-border">
-                                                    <h3 class="box-title">NOMBRE USUARIO</h3>
+                                                    <h3 class="box-title">uuuusssuuuuaaario</h3>
                                                 </div>
                                                 <!-- /.box-header -->
-                                                <div class="box-body">
+                                                <div class="box-body" >
                                                     <!-- Conversations are loaded here -->
                                                     <div class="direct-chat-messages" style="overflow: scroll; height: 400px;">
                                                         <?php
                                                         $user = $_GET['usuario'];
                                                         $sess = $_SESSION['idusuario'];
+
                                                         $chats = IDU("SELECT * FROM chat WHERE De = '$user' AND Para = '$sess' OR De = '$sess' AND Para = '$user' ORDER BY IdChat ASC ");
+
                                                         while($ch = mysqli_fetch_array($chats)) {
-                                                        if($ch['De'] == $user) {$var = $user;} else {$var = $sess;}
-                                                        $usere = IDU("SELECT * FROM usuario WHERE IdUsuario = '$var'");
-                                                        $us = mysqli_fetch_array($usere);
-                                                        ?>
-                                                        <?php if ($ch['Para'] == $user) { ?>
-                                                        <!-- Message. Default to the left -->
-                                                        <div class="direct-chat-msg">
-                                                            <div class="direct-chat-info clearfix">
-                                                                <span class="direct-chat-name pull-left"><?php echo $us['Usuario']; ?></span>
-                                                                <span class="direct-chat-timestamp pull-right"><?php echo $ch['Fecha']; ?></span>
-                                                            </div>
-                                                            <!-- /.direct-chat-info -->
-                                                            <img class="direct-chat-img" src="../avatars/<?php echo $us['Avatar']; ?>"><!-- /.direct-chat-img -->
-                                                            <div class="direct-chat-text">
-                                                                <?php echo $ch['Mensaje']; ?>
-                                                            </div>
-                                                            <!-- /.direct-chat-text -->
-                                                        </div>
-                                                        <!-- /.direct-chat-msg -->
-                                                        <?php } elseif ($ch['De'] == $user) { ?>
-                                                        <!-- Message to the right -->
-                                                        <div class="direct-chat-msg right">
-                                                            <div class="direct-chat-info clearfix">
-                                                                <span class="direct-chat-name pull-right"><?php echo $us['Usuario']; ?></span>
-                                                                <span class="direct-chat-timestamp pull-left"><?php echo $ch['Fecha']; ?></span>
-                                                            </div>
-                                                            <!-- /.direct-chat-info -->
-                                                            <img class="direct-chat-img" src="../avatars/<?php echo $us['Avatar']; ?>" alt="Message User Image"><!-- /.direct-chat-img -->
-                                                            <div class="direct-chat-text">
-                                                                <?php echo $ch['Mensaje']; ?>
-                                                            </div>
-                                                        </div>
+                                                            if($ch['De'] == $user) {$var = $user;} else {$var = $sess;}
+                                                            $usere = IDU("SELECT * FROM usuario WHERE IdUsuario = '$var'");
+                                                            $us = mysqli_fetch_array($usere);
+                                                            ?>
+                                                            <?php if ($ch['Para'] == $user) { ?>
+                                                                <!-- Message. Default to the left -->
+                                                                <div class="direct-chat-msg">
+                                                                    <div class="direct-chat-info clearfix">
+                                                                        <span class="direct-chat-name pull-left"><?php echo $us['Usuario']; ?></span>
+                                                                        <span class="direct-chat-timestamp pull-right"><?php echo $ch['Fecha']; ?></span>
+                                                                    </div>
+                                                                    <!-- /.direct-chat-info -->
+                                                                    <img class="direct-chat-img" src="../avatars/<?php echo $us['Avatar']; ?>"><!-- /.direct-chat-img -->
+                                                                    <div class="direct-chat-text">
+                                                                        <?php echo $ch['Mensaje']; ?>
+                                                                    </div>
+                                                                    <!-- /.direct-chat-text -->
+                                                                </div>
+                                                                <!-- /.direct-chat-msg -->
+                                                            <?php } elseif ($ch['De'] == $user) { ?>
+                                                                <!-- Message to the right -->
+                                                                <div class="direct-chat-msg right">
+                                                                    <div class="direct-chat-info clearfix">
+                                                                        <span class="direct-chat-name pull-right"><?php echo $us['Usuario']; ?></span>
+                                                                        <span class="direct-chat-timestamp pull-left"><?php echo $ch['Fecha']; ?></span>
+                                                                    </div>
+                                                                    <!-- /.direct-chat-info -->
+                                                                    <img class="direct-chat-img" src="../avatars/<?php echo $us['Avatar']; ?>" alt="Message User Image"><!-- /.direct-chat-img -->
+                                                                    <div class="direct-chat-text">
+                                                                        <?php echo $ch['Mensaje']; ?>
+                                                                    </div>
+                                                                </div>
+                                                            <?php } ?>
                                                         <?php } ?>
-                                                        <?php } ?>
+
                                                     </div>
                                                     <!--/.direct-chat-messages-->
                                                     <!-- Contacts are loaded here -->
@@ -196,6 +199,8 @@ if(isset($_GET['l'])){
                                                         $insert3 = IDU("INSERT INTO chat (IdRChat,De,Para,Mensaje,Fecha,LecturaChat) VALUES ('".$com['IdRChat']."','$de','$para','$mensaje',now(),'0')");
                                                         if($insert3) {echo '<script>window.location="chat.php?usuario='.$para.'"</script>';}
                                                         }
+                                                        ?>
+                                                    <?php
                                                     }
                                                     ?>
                                                 </div>

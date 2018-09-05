@@ -55,7 +55,7 @@ if(!isset($_SESSION['usuario']))
     <?php echo Headerb (); ?>
     <?php echo Side (); ?>
 
-
+    <br><br><br>
     <div class="content-wrapper">
         <div class="col-md-12">
             <div class="box-footer">

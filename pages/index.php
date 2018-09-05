@@ -55,6 +55,7 @@ if(!isset($_SESSION['usuario']))
             <?php echo Side (); ?>
 
             <!-- Content Wrapper. Contains page content -->
+            <br><br><br>
             <div class="content-wrapper">
                 <!-- Main content -->
                 <section class="content">
@@ -149,12 +150,12 @@ if(!isset($_SESSION['usuario']))
                             </div>
                             <div>
                                 <script>
-                                    //Simple codigo para hacer la paginacion scroll
-                                    //$(document).ready(function() {
-                                        //$('.scroll').jscroll({
-                                        //    loadingHtml: '<img src="../images/invisible.png" alt="Loading" />'
-                                        //});
-                                    //});
+                                    Simple codigo para hacer la paginacion scroll
+                                    $(document).ready(function() {
+                                        $('.scroll').jscroll({
+                                            loadingHtml: '<img src="../images/invisible.png" alt="Loading" />'
+                                        });
+                                    });
                                 </script>
                                 <!-- codigo scroll -->
                             </div>
@@ -169,17 +170,21 @@ if(!isset($_SESSION['usuario']))
                                 <!-- /.box-header -->
                                 <div class="box-body no-padding">
                                     <ul class="users-list clearfix">
-                                        <?php $registrados = IDU("SELECT Avatar,Usuario,FechaRegistro FROM usuario order by IdUsuario desc limit 8");
+                                        <?php $registrados = IDU("SELECT IdUsuario, Avatar,Usuario,FechaRegistro FROM usuario order by IdUsuario desc limit 8");
                                         while($reg=mysqli_fetch_array($registrados))
                                         {
-                                            ?>
-                                            <li>
-                                                <img src="../avatars/<?php echo $reg['Avatar']; ?>" alt="User Image" width="100" height="200">
+                                            if ($_SESSION['idusuario'] == $reg['IdUsuario']){
 
-                                                <span class="user-list-name" onclick="location.href='profile2.php?id=<?php echo $use['IdUsuario'];?>';" style="cursor:pointer; color: #e42222;""><?php echo $reg['Usuario'];?></span>
-                                                <span class="users-list-date">Hoy</span>
-                                            </li>
+                                            }else{
+                                            ?>
+                                                <li>
+                                                    <img src="../avatars/<?php echo $reg['Avatar']; ?>" alt="User Image" width="100" height="200">
+
+                                                    <span class="user-list-name" onclick="location.href='profile2.php?id=<?php echo $reg['IdUsuario'];?>';" style="cursor:pointer; color: #e42222;""><?php echo $reg['Usuario'];?></span>
+                                                    <span class="users-list-date">Hoy</span>
+                                                </li>
                                             <?php
+                                            }
                                         }
                                         ?>
                                     </ul>
