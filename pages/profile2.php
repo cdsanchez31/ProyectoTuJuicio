@@ -16,6 +16,13 @@ if(!isset($_SESSION['usuario']))
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>LEGISLAPP - PERFIL</title>
+
+    <?php
+    $usuario2id = $_GET['id'];
+    if ($usuario2id == $_SESSION['idusuario']){
+        header("Location: index.php");
+    }
+    ?>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->

@@ -109,7 +109,7 @@ include ('../lib/socialnetwork-lib.php');
                                                 $chat = IDU("SELECT * FROM chat WHERE IdRChat = ".$ch['IdRChat']." ORDER BY IdChat desc limit 1");
                                                 $cha = mysqli_fetch_array($chat);
                                                 ?>
-                                                <tr>
+                                                <tr onclick="#">
                                                     <td class="mailbox-star">
                                                         <?php if ($cha['LecturaChat'] == 0){ ?>
                                                         <i class="fa fa-star text-yellow"></i>

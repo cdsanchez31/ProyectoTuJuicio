@@ -122,6 +122,7 @@ function Headerb (){
             </a>
             </li>
 
+            <!--
             <li>
                 <a href="Calendar.php">
                     <i class="fa fa-calendar"></i> <span>Calendario</span>
@@ -133,9 +134,10 @@ function Headerb (){
                     <i class="fa fa-envelope"></i> <span>Mailbox</span>
                 </a>
             </li>
+            -->
 
             <li>
-                <a href="pages/widgets.html">
+                <a href="#">
                     <i class="fa fa-hand-stop-o"></i> <span>Ayuda</span>
                 </a>
 
